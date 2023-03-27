@@ -1,0 +1,74 @@
+// TODO: split this file up into logical chunks once things are rolling
+
+html {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#new-badge-container {
+  background: linear-gradient(
+                  90deg,
+                  rgba(33, 40, 44, 0.198) 0%,
+                  rgba(194, 217, 226, 0.2) 50%,
+                  rgba(61, 73, 79, 0.2) 100%), #FFFFFF;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  header {
+    width: 100%;
+    height: 50px;
+    background: black;
+    color: white;
+  }
+
+  footer {
+    width: 100%;
+    height: 50px;
+    background: white;
+    border-top: 1px solid black;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+  }
+
+  button#the-big-button {
+    background: black;
+    color: white;
+    font-size: 20px;
+    padding: 1rem 4rem;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    position: relative;
+
+    &:active {
+      background: #616161;
+      box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+      top: 2px;
+      left: 1px;
+    }
+  }
+}
