@@ -103,6 +103,7 @@ body {
 
     .bar {
       height: 100%;
+      width: 0%;
       background: linear-gradient(180deg, #61FD5E 0%, rgba(97, 253, 94, 0) 236.84%);
       border-radius: 2px;
       transition: background-color 0.5s ease-in,
@@ -116,6 +117,27 @@ body {
     }
   }
 
+  .badge-controls {
+    width: 50rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .turn-pips {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .turn-pip {
+    width: 35px;
+    height: 35px;
+    border: 3px dashed #999;
+    border-radius: 100px;
+  }
+
   button#the-big-button {
     background: black;
     color: white;
@@ -127,6 +149,7 @@ body {
     cursor: pointer;
     position: relative;
     letter-spacing: 0.02em;
+    margin-bottom: 1.5rem;
 
     &:active {
       background: #616161;
@@ -151,5 +174,5 @@ body {
 }
 
 .animate-color-adding {
-  animation: color-adding .8s cubic-bezier(0,.68,.06,1.01);
+  animation: color-adding .8s cubic-bezier(.18,.89,.32,1.28);
 }

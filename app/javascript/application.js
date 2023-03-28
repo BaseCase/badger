@@ -14,7 +14,6 @@ function go() {
 function go_create_badge_page() {
   let state = {
     is_button_down: false,
-    is_progress_bar_visible: false,
     progress_pct: 0,
     badge_colors: [],
   }
@@ -27,11 +26,6 @@ function go_create_badge_page() {
 
 
   big_button_el.addEventListener('mousedown', function (event) {
-    if (!state.is_progress_bar_visible) {
-      progress_bar_container_el.classList.remove('hidden')
-      state.is_progress_bar_visible = true
-      state.progress_pct = 15
-    }
     start_filling_animation()
     state.is_button_down = true
   })
@@ -81,8 +75,7 @@ function go_create_badge_page() {
 
   function add_new_color() {
     // lotta stuff happens here!
-    //    1. badge appears
-    //    2. badge gets first color
+    //    2. badge gets a new color
     //    3. the remaining two buttons and the 5 color pips appear
     //    4. bar drains to 0
     //   OR, if it's not the first color:
@@ -121,15 +114,20 @@ function go_create_badge_page() {
 
   function draw_badge() {
     let stripes = Array.from(badge_el.querySelectorAll('.badge-stripe'))
+    let turn_pips = Array.from(document.querySelectorAll('.turn-pip'))
     let width_pct = 100.0 / state.badge_colors.length
 
     for (let idx=0; idx < state.badge_colors.length; ++idx) {
       let stripe = stripes[idx]
+      let pip = turn_pips[idx]
       let color = state.badge_colors[idx]
       stripe.style.x = `${idx * width_pct}%`
       stripe.style.width = `${width_pct}%`
       stripe.style.fill = color
       stripe.classList.add('animate-color-adding')
+      pip.style.borderStyle = 'solid'
+      pip.style.borderColor = 'white'
+      pip.style.backgroundColor = color
     }
   }
 
