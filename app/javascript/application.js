@@ -25,6 +25,7 @@ function go_create_badge_page() {
   let badge_el = document.querySelector('#the-badge')
   let save_and_share_el = document.querySelector('.save-and-share')
   let delete_and_restart_el = document.querySelector('.delete-and-restart')
+  let vignetting_effect_overlay_el = document.querySelector('#vignetting-effect-overlay')
 
 
   big_button_el.addEventListener('mousedown', function(event) {
@@ -120,6 +121,15 @@ function go_create_badge_page() {
     let get_intense = (state.progress_pct > 85 && state.is_button_down)
     progress_bar_el.classList.toggle('almost-full', get_intense)
     progress_bar_el.style.width = `${state.progress_pct}%`
+
+    if (get_intense) {
+      let blur = `${state.progress_pct}px`
+      let spread = `${state.progress_pct}px`
+      let darkness = `${state.progress_pct}%`
+      vignetting_effect_overlay_el.style.boxShadow = `inset 0 0 ${blur} ${spread} rgb(0, 0, 0, ${darkness}`
+    } else {
+      vignetting_effect_overlay_el.style.boxShadow = 'none'
+    }
   }
 
   function draw_badge() {

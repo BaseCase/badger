@@ -31,7 +31,7 @@ body {
 .bold { font-weight: 700; }
 
 .hidden { opacity: 0; }
-.disabled { opacity: 30%; }
+.disabled { opacity: 20%; }
 
 #new-badge-container {
   background:
@@ -170,6 +170,14 @@ body {
       top: 2px;
       left: 1px;
     }
+  }
+
+  #vignetting-effect-overlay {
+    position: fixed;
+    width: 100vh;
+    height: 100vh;
+    pointer-events: none;
+    transition: box-shadow 0.5s;
   }
 }
 
