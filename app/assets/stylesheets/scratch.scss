@@ -74,6 +74,11 @@ body {
     gap: 4rem;
   }
 
+  #the-badge {
+    height: 300px;
+    width: 300px;
+  }
+
   #progress-bar-container {
     width: 50rem;
     height: 2.5rem;
@@ -82,17 +87,24 @@ body {
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     transition: opacity 1s ease-out;
 
-    .bar {
+    .inner-container {
+      width: 98.6%;
       height: 77%;
       margin-top: .3rem;
       margin-bottom: .3rem;
       margin-left: .3rem;
-      width: 300px;
+    }
+
+    .bar {
+      height: 100%;
       background: linear-gradient(180deg, #61FD5E 0%, rgba(97, 253, 94, 0) 236.84%);
       border-radius: 2px;
+      transition: background-color 0.5s ease-in,
+                  box-shadow 0.2s ease-in-out;
 
       &.almost-full {
         background: #61FD5E;
+        background: linear-gradient(180deg, #05ff00 0%, rgba(25, 255, 22, 0) 236.84%);
         box-shadow: 2px 0px 16px 10px rgba(127, 255, 48, 0.52);
       }
     }
