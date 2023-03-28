@@ -74,9 +74,15 @@ body {
     gap: 4rem;
   }
 
+  .badge-wrap {
+    filter: drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.25));
+  }
+
   #the-badge {
     height: 300px;
     width: 300px;
+    clip-path: circle(150px);
+    transform: rotate(45deg)
   }
 
   #progress-bar-container {

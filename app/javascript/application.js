@@ -92,8 +92,11 @@ function go_create_badge_page() {
 
     let new_color = generate_random_color()
     state.badge_colors.push(new_color)
+    state.is_button_down = false
+    state.progress_pct = 0.0
 
     draw_badge()
+    draw_progress_bar()
   }
 
 
@@ -118,7 +121,6 @@ function go_create_badge_page() {
 
   function draw_badge() {
     let stripes = Array.from(badge_el.querySelectorAll('.badge-stripe'))
-    console.log(stripes)
     let width_pct = 100.0 / state.badge_colors.length
 
     for (let idx=0; idx < state.badge_colors.length; ++idx) {
@@ -130,8 +132,11 @@ function go_create_badge_page() {
     }
   }
 
-  // TODO: make this smarter
   function generate_random_color() {
-    return '#f11'
+    let h = Math.floor(Math.random() * 360)
+    let s = Math.floor(Math.random() * 80) + 20
+    let l = Math.floor(Math.random() * 70) + 30
+
+    return `hsl(${h} ${s}% ${l}%)`
   }
 }
