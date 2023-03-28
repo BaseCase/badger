@@ -129,6 +129,7 @@ function go_create_badge_page() {
       stripe.style.x = `${idx * width_pct}%`
       stripe.style.width = `${width_pct}%`
       stripe.style.fill = color
+      stripe.classList.add('animate-color-adding')
     }
   }
 

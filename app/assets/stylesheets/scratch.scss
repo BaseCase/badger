@@ -136,3 +136,20 @@ body {
     }
   }
 }
+
+//
+// animation shit, lord help me
+//
+
+@keyframes color-adding {
+  0% {
+    transform: translateX(400px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-color-adding {
+  animation: color-adding .8s cubic-bezier(0,.68,.06,1.01);
+}
