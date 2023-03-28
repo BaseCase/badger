@@ -31,6 +31,7 @@ body {
 .bold { font-weight: 700; }
 
 .hidden { opacity: 0; }
+.disabled { opacity: 30%; }
 
 #new-badge-container {
   background:
@@ -122,7 +123,19 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
+
+    .save-and-share {
+      color: black;
+      font-size: 130%;
+    }
+
+    .delete-and-restart {
+      color: #666;
+      text-decoration: none;
+      font-size: 80%;
+      letter-spacing: 0.02em;
+    }
   }
 
   .turn-pips {

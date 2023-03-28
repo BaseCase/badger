@@ -23,15 +23,31 @@ function go_create_badge_page() {
   let progress_bar_container_el = document.querySelector('#progress-bar-container')
   let progress_bar_el = progress_bar_container_el.querySelector('.bar')
   let badge_el = document.querySelector('#the-badge')
+  let save_and_share_el = document.querySelector('.save-and-share')
+  let delete_and_restart_el = document.querySelector('.delete-and-restart')
 
 
-  big_button_el.addEventListener('mousedown', function (event) {
+  big_button_el.addEventListener('mousedown', function(event) {
     start_filling_animation()
     state.is_button_down = true
   })
 
-  window.addEventListener('mouseup', function (event) {
+  window.addEventListener('mouseup', function(event) {
     state.is_button_down = false
+  })
+
+  save_and_share_el.addEventListener('click', function(event) {
+    event.preventDefault()
+    if (save_and_share_el.classList.contains('disabled')) return;
+
+    alert("This doesn't do anything yet!!")
+  })
+
+  delete_and_restart_el.addEventListener('click', function(event) {
+    event.preventDefault()
+    if (save_and_share_el.classList.contains('disabled')) return;
+
+    alert("This doesn't do anything yet!!")
   })
 
 
@@ -74,19 +90,13 @@ function go_create_badge_page() {
 
 
   function add_new_color() {
-    // lotta stuff happens here!
-    //    2. badge gets a new color
-    //    3. the remaining two buttons and the 5 color pips appear
-    //    4. bar drains to 0
-    //   OR, if it's not the first color:
-    //    1. new color appears
-    //    2. color pip fills
-    //    3. bar drains to 0
-
     let new_color = generate_random_color()
     state.badge_colors.push(new_color)
     state.is_button_down = false
     state.progress_pct = 0.0
+
+    save_and_share_el.classList.remove('disabled')
+    delete_and_restart_el.classList.remove('disabled')
 
     draw_badge()
     draw_progress_bar()
