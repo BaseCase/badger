@@ -1,11 +1,12 @@
 window.addEventListener('load', function() {
   go()
+  let body = document.querySelector('body')
+  body.classList.remove('preload')
 })
 
 function go() {
   let new_badge_el = document.querySelector('#new-badge-container')
   if (new_badge_el != null) {
-    new_badge_el.classList.remove('preload')
     go_create_badge_page()
   }
 }
