@@ -27,17 +27,20 @@ function go_create_badge_page() {
   let delete_and_restart_el = document.querySelector('.delete-and-restart')
   let vignetting_effect_overlay_el = document.querySelector('#vignetting-effect-overlay')
 
-
-  big_button_el.addEventListener('mousedown', function(event) {
+  function on_button_press(event) {
     if (big_button_el.classList.contains('disabled')) return;
 
     start_filling_animation()
     state.is_button_down = true
-  })
+  }
+  big_button_el.addEventListener('mousedown', on_button_press)
+  big_button_el.addEventListener('touchstart', on_button_press)
 
-  window.addEventListener('mouseup', function(event) {
+  function on_button_release(event) {
     state.is_button_down = false
-  })
+  }
+  window.addEventListener('mouseup', on_button_release)
+  window.addEventListener('touchend', on_button_release)
 
   save_and_share_el.addEventListener('click', function(event) {
     event.preventDefault()
