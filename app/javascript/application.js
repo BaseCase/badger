@@ -29,6 +29,7 @@ function go_create_badge_page() {
 
   function on_button_press(event) {
     if (big_button_el.classList.contains('disabled')) return;
+    if (event.button !== 0) return;   // left click only
 
     start_filling_animation()
     state.is_button_down = true
