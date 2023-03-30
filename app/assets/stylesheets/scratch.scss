@@ -127,6 +127,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: baseline;
+    user-select: none;
 
     .save-and-share {
       color: black;
@@ -166,7 +167,6 @@ body {
     position: relative;
     letter-spacing: 0.02em;
     margin-bottom: 1.5rem;
-    user-select: none;
 
     &:active:not(.disabled) {
       background: #616161;
