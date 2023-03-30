@@ -1,73 +1,20 @@
-// TODO: split this file up into logical chunks once things are rolling
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300&display=swap');
-
-html {
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-body {
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-}
-
-.preload * {
-  transition: none !important;
-}
-
-.light { font-weight: 300; }
-.bold { font-weight: 700; }
-.hidden { opacity: 0; }
-
-.disabled {
-  opacity: 15%;
-  cursor: default;
-}
-
 #new-badge-container {
   background:
           linear-gradient(
-                  90deg,
-                  rgba(33, 40, 44, 0.198) 0%,
-                  rgba(194, 217, 226, 0.2) 50%,
-                  rgba(61, 73, 79, 0.2) 100%),
+                          90deg,
+                          rgba(33, 40, 44, 0.198) 0%,
+                          rgba(194, 217, 226, 0.2) 50%,
+                          rgba(61, 73, 79, 0.2) 100%),
           url('placeholder_badger_background.png')
-            no-repeat
-            bottom 100px
-            left -100px;
+          no-repeat
+          bottom 100px
+          left -100px;
 
   width: 100%;
   height: 100%;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  header {
-    width: 100%;
-    height: 50px;
-    background: black;
-    color: white;
-  }
-
-  footer {
-    width: 100%;
-    height: 50px;
-    background: white;
-    border-top: 1px solid black;
-  }
 
   main {
     display: flex;
@@ -111,7 +58,7 @@ body {
       background: linear-gradient(180deg, #61FD5E 0%, rgba(97, 253, 94, 0) 236.84%);
       border-radius: 2px;
       transition: background-color 0.5s ease-in,
-                  box-shadow 0.2s ease-in-out;
+      box-shadow 0.2s ease-in-out;
 
       &.almost-full {
         background: #61FD5E;
@@ -188,21 +135,17 @@ body {
     pointer-events: none;
     transition: box-shadow 0.5s;
   }
-}
 
-//
-// animation shit, lord help me
-//
-
-@keyframes color-adding {
-  0% {
-    transform: translateX(400px);
+  @keyframes color-adding {
+    0% {
+      transform: translateX(400px);
+    }
+    100% {
+      transform: translateX(0);
+    }
   }
-  100% {
-    transform: translateX(0);
-  }
-}
 
-.animate-color-adding {
-  animation: color-adding .8s cubic-bezier(.18,.89,.32,1.28);
+  .animate-color-adding {
+    animation: color-adding .8s cubic-bezier(.18,.89,.32,1.28);
+  }
 }
