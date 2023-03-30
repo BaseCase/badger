@@ -29,6 +29,8 @@ function go_create_badge_page() {
 
 
   big_button_el.addEventListener('mousedown', function(event) {
+    if (big_button_el.classList.contains('disabled')) return;
+
     start_filling_animation()
     state.is_button_down = true
   })
@@ -91,13 +93,17 @@ function go_create_badge_page() {
 
 
   function add_new_color() {
-    let new_color = generate_random_color()
-    state.badge_colors.push(new_color)
+    if (state.badge_colors.length < 5) {
+      let new_color = generate_random_color()
+      state.badge_colors.push(new_color)
+    }
     state.is_button_down = false
     state.progress_pct = 0.0
 
-    save_and_share_el.classList.remove('disabled')
-    delete_and_restart_el.classList.remove('disabled')
+    save_and_share_el.classList.toggle('disabled', state.badge_colors.length === 0)
+    delete_and_restart_el.classList.toggle('disabled', state.badge_colors.length === 0)
+    big_button_el.classList.toggle('disabled', state.badge_colors.length >= 5)
+    big_button_el.toggleAttribute('disabled', state.badge_colors.length >= 5)
 
     draw_badge()
     draw_progress_bar()

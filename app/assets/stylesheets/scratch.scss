@@ -29,9 +29,12 @@ body {
 
 .light { font-weight: 300; }
 .bold { font-weight: 700; }
-
 .hidden { opacity: 0; }
-.disabled { opacity: 20%; }
+
+.disabled {
+  opacity: 15%;
+  cursor: default;
+}
 
 #new-badge-container {
   background:
@@ -131,7 +134,7 @@ body {
     }
 
     .delete-and-restart {
-      color: #666;
+      color: black;
       text-decoration: none;
       font-size: 80%;
       letter-spacing: 0.02em;
@@ -164,11 +167,16 @@ body {
     letter-spacing: 0.02em;
     margin-bottom: 1.5rem;
 
-    &:active {
+    &:active:not(.disabled) {
       background: #616161;
       box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
       top: 2px;
       left: 1px;
+    }
+
+    &.disabled {
+      cursor: default;
+      box-shadow: none;
     }
   }
 
