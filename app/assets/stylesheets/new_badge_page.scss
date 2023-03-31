@@ -25,15 +25,9 @@
     gap: 4rem;
   }
 
-  .badge-wrap {
-    filter: drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.25));
-  }
-
-  #the-badge {
+  .badge {
     height: 300px;
     width: 300px;
-    clip-path: circle(150px);
-    transform: rotate(45deg)
   }
 
   #progress-bar-container {
@@ -80,13 +74,6 @@
       color: black;
       font-size: 130%;
     }
-
-    .delete-and-restart {
-      color: black;
-      text-decoration: none;
-      font-size: 80%;
-      letter-spacing: 0.02em;
-    }
   }
 
   .turn-pips {
@@ -102,56 +89,17 @@
     border-radius: 100px;
   }
 
-  button#the-big-button {
-    background: black;
-    color: white;
-    font-size: 22px;
-    padding: 1rem 5rem;
-    border: none;
-    border-radius: 6px;
-    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.25);
-    cursor: pointer;
-    position: relative;
-    letter-spacing: 0.02em;
-    margin-bottom: 1.5rem;
-
-    &:active:not(.disabled) {
-      background: #616161;
-      box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-      top: 2px;
-      left: 1px;
-    }
-
-    &.disabled {
-      cursor: default;
-      box-shadow: none;
-    }
-  }
-
   #full-window-overlay {
     position: fixed;
     width: 100vw;
     height: 100vh;
     pointer-events: none;
-    transition: box-shadow 0.5s;
-    transition: background-color 0.3s ease-out;
+    transition: box-shadow 0.5s,
+                background-color 0.2s ease-out;
 
     &.obscuring-for-modal {
       background-color: rgb(0, 0, 0, 0.7);
       pointer-events: auto;
     }
-  }
-
-  @keyframes color-adding {
-    0% {
-      transform: translateX(400px);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-
-  .animate-color-adding {
-    animation: color-adding .8s cubic-bezier(.18,.89,.32,1.28);
   }
 }

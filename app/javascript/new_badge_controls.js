@@ -1,4 +1,5 @@
 import { show_badge_save_modal } from './badge_save_controls'
+import { draw_badge } from './draw_badge'
 
 
 function init_new_badge_page() {
@@ -12,7 +13,7 @@ function init_new_badge_page() {
   let big_button_el = document.querySelector('#the-big-button')
   let progress_bar_container_el = document.querySelector('#progress-bar-container')
   let progress_bar_el = progress_bar_container_el.querySelector('.bar')
-  let badge_el = document.querySelector('#the-badge')
+  let badge_el = document.querySelector('main .badge')
   let save_and_share_el = document.querySelector('.save-and-share')
   let delete_and_restart_el = document.querySelector('.delete-and-restart')
   let vignetting_effect_overlay_el = document.querySelector('#full-window-overlay')
@@ -97,19 +98,12 @@ function init_new_badge_page() {
     }
   }
 
-  function draw_badge() {
-    let stripes = Array.from(badge_el.querySelectorAll('.badge-stripe'))
+  function draw_turn_pips() {
     let turn_pips = Array.from(document.querySelectorAll('.turn-pip'))
-    let width_pct = 100.0 / state.badge_colors.length
 
     for (let idx=0; idx < state.badge_colors.length; ++idx) {
-      let stripe = stripes[idx]
       let pip = turn_pips[idx]
       let color = state.badge_colors[idx]
-      stripe.style.x = `${idx * width_pct}%`
-      stripe.style.width = `${width_pct}%`
-      stripe.style.fill = color
-      stripe.classList.add('animate-color-adding')
       pip.style.borderStyle = 'solid'
       pip.style.borderColor = 'white'
       pip.style.backgroundColor = color
@@ -129,7 +123,8 @@ function init_new_badge_page() {
     big_button_el.classList.toggle('disabled', state.badge_colors.length >= 5)
     big_button_el.toggleAttribute('disabled', state.badge_colors.length >= 5)
 
-    draw_badge()
+    draw_badge(badge_el, state.badge_colors)
+    draw_turn_pips()
     draw_progress_bar()
   }
 
