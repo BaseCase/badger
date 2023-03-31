@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   get "/new", to: "badges#new"
 
-  resources :badges, only: [:create]
+  resources :badges, only: [:show, :create]
 end
