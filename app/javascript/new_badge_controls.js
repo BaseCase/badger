@@ -1,3 +1,6 @@
+import { show_badge_save_modal } from './badge_save_controls'
+
+
 function init_new_badge_page() {
   let state = {
     is_button_down: false,
@@ -12,7 +15,7 @@ function init_new_badge_page() {
   let badge_el = document.querySelector('#the-badge')
   let save_and_share_el = document.querySelector('.save-and-share')
   let delete_and_restart_el = document.querySelector('.delete-and-restart')
-  let vignetting_effect_overlay_el = document.querySelector('#vignetting-effect-overlay')
+  let vignetting_effect_overlay_el = document.querySelector('#full-window-overlay')
 
 
   function on_button_press(event) {
@@ -35,7 +38,7 @@ function init_new_badge_page() {
     event.preventDefault()
     if (save_and_share_el.classList.contains('disabled')) return;
 
-    alert("This doesn't do anything yet!!")
+    show_badge_save_modal(state.badge_colors)
   })
 
   delete_and_restart_el.addEventListener('click', function(event) {
@@ -131,6 +134,9 @@ function init_new_badge_page() {
   }
 
   function fill_rate_curve() {
+    return 1000
+
+
     if (state.is_button_down) {
       let remaining = 100.0 - state.progress_pct
       return (remaining * remaining) * 0.03 + 3

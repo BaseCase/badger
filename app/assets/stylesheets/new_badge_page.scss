@@ -128,12 +128,18 @@
     }
   }
 
-  #vignetting-effect-overlay {
+  #full-window-overlay {
     position: fixed;
     width: 100vw;
     height: 100vh;
     pointer-events: none;
     transition: box-shadow 0.5s;
+    transition: background-color 0.3s ease-out;
+
+    &.obscuring-for-modal {
+      background-color: rgb(0, 0, 0, 0.7);
+      pointer-events: auto;
+    }
   }
 
   @keyframes color-adding {
