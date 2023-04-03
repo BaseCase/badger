@@ -129,9 +129,6 @@ function init_new_badge_page() {
   }
 
   function fill_rate_curve() {
-    return 1000
-
-
     if (state.is_button_down) {
       let remaining = 100.0 - state.progress_pct
       return (remaining * remaining) * 0.03 + 3
