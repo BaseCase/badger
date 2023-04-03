@@ -5,7 +5,7 @@
 
   <main>
     <div class="badge-wrap">
-      <svg id="the-badge" xmlns="http://www.w3.org/2000/svg">
+      <svg class="badge" xmlns="http://www.w3.org/2000/svg">
         <g class="colors">
           <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
           <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
@@ -27,7 +27,7 @@
       <div class="add-colors">
         <button id="the-big-button"
                 type="button"
-                class="bold">
+                class="primary-button">
           Add a Color
         </button>
 
@@ -42,7 +42,7 @@
 
       <a href="#" class="save-and-share disabled">Save and Share</a>
 
-      <a href="#" class="delete-and-restart disabled">Delete and restart</a>
+      <a href="#" class="delete-and-restart secondary-button disabled">Delete and restart</a>
     </div>
   </main>
 
@@ -50,5 +50,40 @@
     footer stuff
   </footer>
 
-  <div id="vignetting-effect-overlay"></div>
+  <div id="full-window-overlay"></div>
+
+  <div id="save-badge-modal">
+    <%= form_with model: @badge do |form| %>
+      <div class="badge-wrap">
+        <svg class="badge" xmlns="http://www.w3.org/2000/svg">
+          <g class="colors">
+            <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+            <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+            <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+            <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+            <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+          </g>
+          <circle r="50%" cx="50%" cy="50%" fill="none" stroke="white" stroke-width="25px"></circle>
+        </svg>
+      </div>
+
+      <div class="headline">
+        <h2>Save and Share</h2>
+        <p class="thin">Give your new badge a name, then share it or print it out!</p>
+      </div>
+
+      <div class="inputs">
+        <%= form.label :name, "Badge Name (optional)" %>
+        <%= form.text_field :name, placeholder: "The Ol' Razzle Dazzle" %>
+        <%= form.label :creator_name, "Your Name (optional)" %>
+        <%= form.text_field :creator_name, placeholder: "Jeff Badgemaker" %>
+        <%= form.hidden_field :colors %>
+      </div>
+
+      <div class="controls">
+        <%= form.submit "Save", class: "primary-button" %>
+        <a href="#" class="cancel secondary-button">Cancel</a>
+      </div>
+    <% end %>
+  </div>
 </div>
