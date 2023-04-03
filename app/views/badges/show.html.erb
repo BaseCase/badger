@@ -1,7 +1,81 @@
-<h1>Hi!</h1>
+<script type="text/javascript" charset="utf-8">
+  window.badge_colors = <%= raw json_escape(@badge.colors) %>
+</script>
 
-<ul>
-  <li><%= @badge.name %></li>
-  <li><%= @badge.creator_name %></li>
-  <li><%= @badge.colors %></li>
-</ul>
+<div id="show-badge-container">
+  <header>(placeholder)</header>
+
+  <main>
+    <div class="link-to-gallery">
+      <a href="/">&lt; Badge Gallery</a>
+    </div>
+
+    <div class="badge-view">
+      <div class="badge-wrap">
+        <svg class="badge" xmlns="http://www.w3.org/2000/svg">
+          <g class="colors">
+            <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+            <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+            <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+            <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+            <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+          </g>
+          <circle r="50%" cx="50%" cy="50%" fill="none" stroke="white" stroke-width="25px"></circle>
+        </svg>
+      </div>
+
+      <ul>
+        <li><%= @badge.name %></li>
+        <li><%= @badge.creator_name %></li>
+      </ul>
+    </div>
+  </main>
+
+  <div class="printable print-layout">
+    <div class="row printable">
+      <div class="badge-placeholder printable"></div>
+      <div class="badge-placeholder printable"></div>
+      <div class="badge-placeholder printable"></div>
+    </div>
+    <div class="row printable">
+      <div class="badge-placeholder printable"></div>
+      <div class="badge-placeholder printable"></div>
+      <div class="badge-placeholder printable"></div>
+    </div>
+    <div class="row printable">
+      <div class="badge-placeholder printable"></div>
+      <div class="badge-placeholder printable"></div>
+      <div class="badge-placeholder printable"></div>
+    </div>
+    <div class="row printable">
+      <div class="badge-placeholder printable"></div>
+      <div class="badge-placeholder printable"></div>
+      <div class="badge-placeholder printable"></div>
+    </div>
+  </div>
+
+  <footer>footer stuff</footer>
+</div>
+
+<template id="tpl-badge-to-print">
+  <div class="one-badge">
+    <div class="badge-wrap">
+      <svg class="badge" xmlns="http://www.w3.org/2000/svg">
+        <g class="colors">
+          <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+          <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+          <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+          <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+          <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+        </g>
+        <circle r="50%" cx="50%" cy="50%" fill="none" stroke="white" stroke-width="25px"></circle>
+      </svg>
+    </div>
+
+    <div class="badge-info">
+      <h3><%= @badge.name %></h3>
+      <p class="creator">Created by <%= @badge.creator_name %></p>
+      <p class="station-info"><span class="url">badger.caseybrant.com<%= url_for @badge %></span></p>
+    </div>
+  </div>
+</template>

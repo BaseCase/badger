@@ -1,0 +1,114 @@
+#show-badge-container {
+  background:
+          linear-gradient(
+                          90deg,
+                          rgba(33, 40, 44, 0.198) 0%,
+                          rgba(194, 217, 226, 0.2) 50%,
+                          rgba(61, 73, 79, 0.2) 100%);
+          //url('placeholder_badger_background.png')
+          //no-repeat
+          //top 20px
+          //left 2px;
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+
+    .badge {
+      height: 300px;
+      width: 300px;
+    }
+  }
+
+  .printable {
+    display: none;
+  }
+
+  @media print {
+    background: none;
+
+    .printable {
+      display: block;
+    }
+
+    header, main, footer {
+      display: none;
+    }
+  }
+
+  .print-layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 65px;
+    padding: 0;
+    margin-top: 20px;
+
+    .badge-wrap {
+      filter: none;
+    }
+
+    .row circle {
+      stroke-width: 35px;
+    }
+
+    .badge {
+      height: 190px;
+      width: 190px;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 15px;
+
+      &:nth-of-type(odd) .badge-info {
+        display: none;
+      }
+    }
+
+    .one-badge {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .badge-info {
+      position: absolute;
+      top: -55px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+
+      h3 {
+        margin: 0;
+        margin-bottom: 6px;
+        padding: 0;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      p {
+        margin: 0;
+        padding: 0;
+        font-size: 10px;
+        font-weight: 100;
+
+        .url {
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
