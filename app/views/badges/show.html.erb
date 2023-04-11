@@ -33,7 +33,7 @@
 
     <div class="print-info">
       <a href="#" class="print-btn primary-button">Print</a>
-      <p>Use Avery brand round labels, SKU 22877. More label options coming in the future.</p>
+      <p>Use Avery brand round labels, SKU 22877, and choose "100% scale" instead of "fit to page." More label options coming soon.</p>
     </div>
   </main>
 
@@ -79,8 +79,7 @@
     </div>
 
     <div class="badge-info">
-      <h3><%= @badge.name %></h3>
-      <p class="creator">Created by <%= @badge.creator_name %></p>
+      <p class="creator">"<%= @badge.name %>" created by <%= @badge.creator_name %>.</p>
       <p class="station-info"><span class="url">badger.caseybrant.com<%= url_for @badge %></span></p>
     </div>
   </div>
