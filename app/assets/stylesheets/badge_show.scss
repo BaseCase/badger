@@ -88,16 +88,16 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 65px;
+    gap: 55px;
     padding: 0;
-    margin-top: 20px;
+    margin-top: 13px;
 
     .badge-wrap {
       filter: none;
     }
 
     .row circle {
-      stroke-width: 35px;
+      stroke-width: 25px;
     }
 
     .badge {
@@ -109,7 +109,7 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      padding: 0 15px;
+      padding: 0 13px;
 
       &:nth-of-type(odd) .badge-info {
         display: none;
