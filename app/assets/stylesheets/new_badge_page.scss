@@ -1,15 +1,4 @@
 #new-badge-container {
-  background:
-          linear-gradient(
-                          90deg,
-                          rgba(33, 40, 44, 0.198) 0%,
-                          rgba(194, 217, 226, 0.2) 50%,
-                          rgba(61, 73, 79, 0.2) 100%),
-          url('placeholder_badger_background.png')
-          no-repeat
-          bottom 100px
-          left -100px;
-
   width: 100%;
   height: 100%;
   display: flex;
