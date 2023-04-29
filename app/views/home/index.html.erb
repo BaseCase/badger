@@ -1,3 +1,38 @@
-<main>
-  badge gallery goes here
+<script type="text/javascript" charset="utf-8">
+  window.badge_colors = <%= raw json_escape(@badges.pluck(:colors)) %>
+</script>
+
+<main id="badge-gallery">
+  <nav>
+    <%= link_to "Create your own badge", new_path, class: "primary-button" %>
+    <p>…or click on a badge below to print it!</p>
+  </nav>
+
+  <div class="all-badges">
+    <% @badges.each do |badge| %>
+      <a href="<%= url_for(badge) %>" class="single-badge">
+        <div class="badge-wrap">
+          <svg class="badge" xmlns="http://www.w3.org/2000/svg">
+            <g class="colors">
+              <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+              <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+              <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+              <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+              <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+            </g>
+            <circle r="50%" cx="50%" cy="50%" fill="none" stroke="white" stroke-width="25px"></circle>
+          </svg>
+        </div>
+
+        <div class="info">
+          <% if !badge.name.empty? %>
+            <h2><%= badge.name %></h2>
+          <% end %>
+          <% if !badge.creator_name.empty? %>
+            <h3>by <%= badge.creator_name %></h3>
+          <% end %>
+        </div>
+      </a>
+    <% end %>
+  </div>
 </main>
