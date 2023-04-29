@@ -5,5 +5,7 @@ Rails.application.routes.draw do
 
   get "/new", to: "badges#new"
 
-  resources :badges, only: [:show, :create]
+  resources :badges, only: [:show, :create] do
+    get "print", on: :member
+  end
 end

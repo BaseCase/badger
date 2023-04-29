@@ -1,5 +1,6 @@
 import { init_new_badge_page } from './new_badge_controls'
-import { init_badge_show_page } from './badge_view_and_print_controls'
+import { init_badge_show_page } from './badge_view'
+import { init_badge_print_page } from './badge_print'
 
 
 window.addEventListener('load', function() {
@@ -11,6 +12,11 @@ window.addEventListener('load', function() {
   let show_badge_container_el = document.querySelector('#show-badge-container')
   if (show_badge_container_el !== null) {
     init_badge_show_page()
+  }
+
+  let print_badge_container_el = document.querySelector('#print-badge-container')
+  if (print_badge_container_el !== null) {
+    init_badge_print_page()
   }
 
   // hack to prevent css transitions from firing on initial load

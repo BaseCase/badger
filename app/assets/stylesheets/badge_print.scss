@@ -1,0 +1,67 @@
+body {
+  @media print {
+    background: none;
+  }
+}
+
+#print-badge-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 63px;
+  padding: 0;
+  margin-top: 17px;
+
+  .badge-wrap {
+    filter: none;
+  }
+
+  .row circle {
+    stroke-width: 25px;
+  }
+
+  .badge {
+    height: 190px;
+    width: 190px;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 17px;
+
+    &:last-of-type .badge-info {
+      display: none;
+    }
+  }
+
+  .one-badge {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .badge-info {
+    position: absolute;
+    bottom: -25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    p {
+      margin: 0;
+      padding: 0;
+      font-size: 10px;
+      font-weight: 100;
+      text-wrap: none;
+
+      .url {
+        font-weight: 400;
+      }
+    }
+  }
+}

@@ -7,6 +7,13 @@ class BadgesController < ApplicationController
     @badge = Badge.find_by_slug!(params[:id])
   end
 
+  def print
+    chosen_id = params[:id]
+    @badge = Badge.find_by_slug!(chosen_id)
+
+    render layout: false
+  end
+
   def create
     badge = Badge.new(badge_params)
     badge.colors = JSON.parse(badge.colors)

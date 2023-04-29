@@ -1,6 +1,5 @@
 #show-badge-container {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -11,7 +10,6 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 100%;
 
     .link-to-gallery {
       width: 100%;
@@ -53,83 +51,6 @@
         font-weight: 100;
         font-size: 80%;
         line-height: 1.6;
-      }
-    }
-  }
-
-  .printable {
-    display: none;
-  }
-
-  @media print {
-    background: none;
-
-    .printable {
-      display: block;
-    }
-
-    header, main, footer {
-      display: none;
-    }
-  }
-
-  .print-layout {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 55px;
-    padding: 0;
-    margin-top: 13px;
-
-    .badge-wrap {
-      filter: none;
-    }
-
-    .row circle {
-      stroke-width: 25px;
-    }
-
-    .badge {
-      height: 190px;
-      width: 190px;
-    }
-
-    .row {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      padding: 0 13px;
-
-      &:last-of-type .badge-info {
-        display: none;
-      }
-    }
-
-    .one-badge {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-    }
-
-    .badge-info {
-      position: absolute;
-      bottom: -25px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-
-      p {
-        margin: 0;
-        padding: 0;
-        font-size: 10px;
-        font-weight: 100;
-
-        .url {
-          font-weight: 400;
-        }
       }
     }
   }

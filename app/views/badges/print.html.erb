@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Badger</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+</head>
+
+<body>
+<script type="text/javascript" charset="utf-8">
+  window.badge_colors = <%= raw json_escape(@badge.colors) %>
+</script>
+
+<div id="print-badge-container">
+  <div class="row">
+    <div class="badge-placeholder"></div>
+    <div class="badge-placeholder"></div>
+    <div class="badge-placeholder"></div>
+  </div>
+  <div class="row">
+    <div class="badge-placeholder"></div>
+    <div class="badge-placeholder"></div>
+    <div class="badge-placeholder"></div>
+  </div>
+  <div class="row">
+    <div class="badge-placeholder"></div>
+    <div class="badge-placeholder"></div>
+    <div class="badge-placeholder"></div>
+  </div>
+  <div class="row">
+    <div class="badge-placeholder"></div>
+    <div class="badge-placeholder"></div>
+    <div class="badge-placeholder"></div>
+  </div>
+</div>
+
+<template id="tpl-badge-to-print">
+  <div class="one-badge">
+    <div class="badge-wrap">
+      <svg class="badge" xmlns="http://www.w3.org/2000/svg">
+        <g class="colors">
+          <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+          <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+          <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+          <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+          <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
+        </g>
+        <circle r="50%" cx="50%" cy="50%" fill="none" stroke="white" stroke-width="25px"></circle>
+      </svg>
+    </div>
+
+    <div class="badge-info">
+      <p class="creator">"<%= @badge.name %>" created by <%= @badge.creator_name %>.</p>
+      <p class="station-info"><span class="url">badger.caseybrant.com<%= url_for @badge %></span></p>
+    </div>
+  </div>
+</template>
+</body>
+</html>
