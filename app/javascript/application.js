@@ -1,6 +1,6 @@
 import { init_badge_gallery_page } from './badge_gallery'
 import { init_new_badge_page } from './new_badge_controls'
-import { init_badge_show_page } from './badge_view'
+import { init_badge_show_page } from './badge_show'
 import { init_badge_print_page } from './badge_print'
 
 
