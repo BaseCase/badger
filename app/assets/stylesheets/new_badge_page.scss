@@ -80,6 +80,8 @@
 
   #full-window-overlay {
     position: fixed;
+    top: 30px;
+    left: 0;
     width: 100vw;
     height: 100vh;
     pointer-events: none;
