@@ -12,41 +12,26 @@
 
 <body>
 <script type="text/javascript" charset="utf-8">
-  window.badge_colors = <%= raw json_escape(@badge.colors) %>
+  window.badge_colors = <%= raw json_escape(@badges.pluck(:colors)) %>
 </script>
 
 <div id="print-badge-container">
-  <div class="row">
-    <div class="badge-placeholder"></div>
-    <div class="badge-placeholder"></div>
-    <div class="badge-placeholder"></div>
-  </div>
-  <div class="row">
-    <div class="badge-placeholder"></div>
-    <div class="badge-placeholder"></div>
-    <div class="badge-placeholder"></div>
-  </div>
-  <div class="row">
-    <div class="badge-placeholder"></div>
-    <div class="badge-placeholder"></div>
-    <div class="badge-placeholder"></div>
-  </div>
-  <div class="row">
-    <div class="badge-placeholder"></div>
-    <div class="badge-placeholder"></div>
-    <div class="badge-placeholder"></div>
-  </div>
-</div>
+  <% @badges.each_slice(3) do |row| %>
+    <div class="row">
+      <% row.each do |badge| %>
+        <div class="one-badge">
+          <%= render "shared/empty_badge" %>
 
-<template id="tpl-badge-to-print">
-  <div class="one-badge">
-    <%= render "shared/empty_badge" %>
-
-    <div class="badge-info">
-      <p class="creator">"<%= @badge.name %>" created by <%= @badge.creator_name %>.</p>
-      <p class="station-info"><span class="url">badger.caseybrant.com<%= url_for @badge %></span></p>
+          <div class="badge-info">
+            <p class="creator">"<%= badge.name %>" created by <%= badge.creator_name %>.</p>
+            <p class="station-info">
+              <span class="url">badger.caseybrant.com<%= url_for badge %></span>
+            </p>
+          </div>
+        </div>
+      <% end %>
     </div>
-  </div>
-</template>
+  <% end %>
+</div>
 </body>
 </html>

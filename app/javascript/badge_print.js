@@ -2,14 +2,12 @@ import { draw_badge } from './draw_badge'
 
 
 function init_badge_print_page() {
-  let badge_tpl = document.querySelector('#tpl-badge-to-print')
-  let printable_badges = document.querySelectorAll('.badge-placeholder')
+  let badge_els = document.querySelectorAll('.badge')
+  let colors = window.badge_colors
 
-  Array.from(printable_badges).forEach(function(container) {
-    let badge = badge_tpl.content.firstElementChild.cloneNode(true)
-    container.appendChild(badge)
-    draw_badge(badge, window.badge_colors, false)
-  })
+  for (let i=0; i<colors.length; ++i) {
+    draw_badge(badge_els[i], colors[i], false)
+  }
 
   window.print()
 }
