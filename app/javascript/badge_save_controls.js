@@ -32,6 +32,8 @@ function show_badge_save_modal(badge_colors) {
     event.preventDefault()
     overlay_el.classList.remove('obscuring-for-modal')
     modal_el.classList.remove('active')
+    // hack: save isn't always redirecting and I haven't figured out the real bug there, so just re-enable the save button
+    save_btn_el.classList.remove('disabled')
   }
 }
 
