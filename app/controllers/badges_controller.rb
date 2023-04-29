@@ -11,7 +11,10 @@ class BadgesController < ApplicationController
     chosen_id = params[:id]
     chosen_badge = Badge.find_by_slug(chosen_id)
     chosen_badges = Array.new(6, chosen_badge)
-    random_badges = Badge.order("RANDOM()").first(6)
+    random_badges = Badge
+                      .where.not(slug: chosen_id)
+                      .order("RANDOM()")
+                      .first(6)
 
     @badges = chosen_badges + random_badges
 
