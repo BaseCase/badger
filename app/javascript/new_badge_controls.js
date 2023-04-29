@@ -46,7 +46,9 @@ function init_new_badge_page() {
     event.preventDefault()
     if (save_and_share_el.classList.contains('disabled')) return;
 
-    alert("This doesn't do anything yet!!")
+    if (confirm("Do you want to delete your badge and start from scratch?")) {
+      location.reload()
+    }
   })
 
 
