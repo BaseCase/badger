@@ -40,18 +40,7 @@
 
 <template id="tpl-badge-to-print">
   <div class="one-badge">
-    <div class="badge-wrap">
-      <svg class="badge" xmlns="http://www.w3.org/2000/svg">
-        <g class="colors">
-          <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
-          <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
-          <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
-          <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
-          <rect class="badge-stripe" x="0" y="0" width="0" height="100%"></rect>
-        </g>
-        <circle r="50%" cx="50%" cy="50%" fill="none" stroke="white" stroke-width="25px"></circle>
-      </svg>
-    </div>
+    <%= render "shared/empty_badge" %>
 
     <div class="badge-info">
       <p class="creator">"<%= @badge.name %>" created by <%= @badge.creator_name %>.</p>
