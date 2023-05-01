@@ -1,0 +1,27 @@
+#about-page {
+  background: linear-gradient(
+                  90deg,
+                  rgba(33, 40, 44, 0.198) 0%,
+                  rgba(194, 217, 226, 0.2) 50%,
+                  rgba(61, 73, 79, 0.2) 100%),
+              white;
+
+  flex-grow: 1;
+  padding: 2rem;
+
+  h1 {
+    margin: 0;
+    padding: 1.5rem 0;
+  }
+
+  p {
+    max-width: 39em;
+    line-height: 1.6;
+    padding: 0;
+    margin-bottom: 1.3em;
+  }
+
+  a, a:visited {
+    color: #22a3e1;
+  }
+}
