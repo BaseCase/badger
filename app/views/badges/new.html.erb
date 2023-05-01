@@ -44,9 +44,9 @@
 
       <div class="inputs">
         <%= form.label :name, "Badge Name (optional)" %>
-        <%= form.text_field :name, placeholder: "The Ol' Razzle Dazzle" %>
+        <%= form.text_field :name, placeholder: "The Ol' Razzle Dazzle", maxlength: "30" %>
         <%= form.label :creator_name, "Your Name (optional)" %>
-        <%= form.text_field :creator_name, placeholder: "Jeff Badgemaker" %>
+        <%= form.text_field :creator_name, placeholder: "Jeff Badgemaker", maxlength: "30" %>
         <%= form.hidden_field :colors %>
       </div>
 
