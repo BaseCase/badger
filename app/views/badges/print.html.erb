@@ -23,7 +23,14 @@
           <%= render "shared/empty_badge" %>
 
           <div class="badge-info">
-            <p class="creator">"<%= badge.name %>" created by <%= badge.creator_name %>.</p>
+            <p class="creator">
+              <% if !badge.name.empty? %>
+                "<%= badge.name %>"
+              <% end %>
+              <% if !badge.creator_name.empty? %>
+                created by <%= badge.creator_name %>.
+              <% end %>
+            </p>
             <p class="station-info">
               <span class="url">badger.caseybrant.com<%= url_for badge %></span>
             </p>

@@ -7,14 +7,18 @@
     <a href="/">&lt; Badge Gallery</a>
   </div>
 
-  <h1><%= @badge.name %></h1>
+  <% if !@badge.name.empty? %>
+    <h1><%= @badge.name %></h1>
+  <% end %>
 
   <div class="badge-view">
     <%= render "shared/empty_badge" %>
   </div>
 
   <div class="creator">
-    Created by <%= @badge.creator_name %>.
+    <% if !@badge.creator_name.empty? %>
+      Created by <%= @badge.creator_name %>.
+    <% end %>
   </div>
 
   <div class="print-info">
