@@ -2,25 +2,23 @@
   window.badge_colors = <%= raw json_escape(@badge.colors) %>
 </script>
 
-<div id="show-badge-container">
-  <main>
-    <div class="link-to-gallery">
-      <a href="/">&lt; Badge Gallery</a>
-    </div>
+<main id="show-badge-container">
+  <div class="link-to-gallery">
+    <a href="/">&lt; Badge Gallery</a>
+  </div>
 
-    <h1><%= @badge.name %></h1>
+  <h1><%= @badge.name %></h1>
 
-    <div class="badge-view">
-      <%= render "shared/empty_badge" %>
-    </div>
+  <div class="badge-view">
+    <%= render "shared/empty_badge" %>
+  </div>
 
-    <div class="creator">
-      Created by <%= @badge.creator_name %>.
-    </div>
+  <div class="creator">
+    Created by <%= @badge.creator_name %>.
+  </div>
 
-    <div class="print-info">
-      <%= link_to "Print", print_badge_path(@badge), class: "primary-button", target: "_blank" %>
-      <p>Use Avery brand labels, SKU <strong>22877</strong>, and choose "fit to page width" in print options.</p>
-    </div>
-  </main>
-</div>
+  <div class="print-info">
+    <%= link_to "Print", print_badge_path(@badge), class: "primary-button", target: "_blank" %>
+    <p>Use Avery brand labels, SKU <strong>22877</strong>, and choose "fit to page width" in print options.</p>
+  </div>
+</main>
