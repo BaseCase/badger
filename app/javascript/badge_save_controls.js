@@ -7,12 +7,14 @@ function show_badge_save_modal(badge_colors) {
   let badge_el = modal_el.querySelector('.badge')
   let colors_form_field_el = modal_el.querySelector('input[name="badge[colors]"]')
   let save_btn_el = modal_el.querySelector('input[type="submit"]')
+  let badge_name_el = modal_el.querySelector('input[name="badge[name]"]')
   let cancel_btn_el = modal_el.querySelector('.cancel')
 
 
   overlay_el.classList.add('obscuring-for-modal')
   modal_el.classList.add('active')
   draw_badge(badge_el, badge_colors, false)
+  badge_name_el.focus()
 
   colors_form_field_el.value = JSON.stringify(badge_colors)
 
